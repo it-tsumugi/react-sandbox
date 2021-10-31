@@ -1,6 +1,6 @@
 {
-    "homepage": "https://it-tsumugi.github.io/chat-app",
-    "name": "chatapp",
+    "homepage": "https://it-tsumugi.github.io/react-sandbox",
+    "name": "react-sandbox",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
