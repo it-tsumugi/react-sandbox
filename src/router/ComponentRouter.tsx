@@ -12,7 +12,7 @@ import { TopHeader } from "../components/organisms/TopHeader";
 
 export const ComponentRouter: VFC = () => {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
             <Switch>
                 <Route exact path={pathData.top}>
                     <TopHeader />
