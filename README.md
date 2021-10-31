@@ -1,5 +1,5 @@
-#react-sandbox
+# react-sandbox
 Reactでの実験用リポジトリです
 
-#実験したもの
+# 実験したもの
 redux,firebase
