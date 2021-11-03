@@ -11,7 +11,7 @@ export const useFetchData = () => {
     useEffect(() => {
         const chatRef: DatabaseReference = ref(db, "users");
         onValue(chatRef, (snapshot) => {
-            console.log("データを取ってくる");
+            console.log("チャットデータの取得");
             if (snapshot.exists()) {
                 const dbData = snapshot.val();
                 const bufChatData: chatDataType[] = Object.entries<dbDataType>(
@@ -25,5 +25,7 @@ export const useFetchData = () => {
                 console.log("データがありません");
             }
         });
-    }, [dispatch]);
+        //dispatchに対して依存配列に入れるように警告がでるのでeslintを無効化
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 };

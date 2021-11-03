@@ -6,14 +6,17 @@ import { db } from "../index";
 type addUserType = {
     userName: string;
     text: string;
-    setUserName: React.Dispatch<React.SetStateAction<string>>;
     setText: React.Dispatch<React.SetStateAction<string>>;
+    isLogin: boolean;
 };
 
 export const addUser = (props: addUserType) => {
-    const { userName, text, setUserName, setText } = props;
-    if (userName.length !== 0 && text.length !== 0) {
-        moment.locale("ja");
+    const { userName, text, setText, isLogin } = props;
+    if (isLogin === false) {
+        window.alert("ログインしてください");
+    } else if (text.length === 0) {
+        window.alert("テキストを入力してください");
+    } else {
         let timestamp = moment();
         const postData = {
             user_name: userName,
@@ -22,9 +25,6 @@ export const addUser = (props: addUserType) => {
         };
         const dbRef = ref(db, "users/");
         push(dbRef, postData);
-        setUserName("");
         setText("");
-    } else {
-        window.alert("ユーザー名とテキストを入力してください");
     }
 };

@@ -7,7 +7,7 @@ import { ReduxPage2 } from "../components/pages/ReduxPage2";
 import { Top } from "../components/pages/Top";
 import { FireBasePage1 } from "../components/pages/FireBasePage1";
 import { TopHeader } from "../components/organisms/TopHeader";
-import { FireBaseHeader } from "../components/organisms/FireBaseHeader";
+import { FireBaseHeader } from "../components/organisms/FireBase/FireBaseHeader";
 
 import { pathData } from "../assets/data/pathData";
 
