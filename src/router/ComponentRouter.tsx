@@ -4,11 +4,12 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { ReduxHeader } from "../components/organisms/ReduxHeader";
 import { ReduxPage1 } from "../components/pages/ReduxPage1";
 import { ReduxPage2 } from "../components/pages/ReduxPage2";
-
-import { pathData } from "../assets/data/pathData";
 import { Top } from "../components/pages/Top";
 import { FireBasePage1 } from "../components/pages/FireBasePage1";
 import { TopHeader } from "../components/organisms/TopHeader";
+import { FireBaseHeader } from "../components/organisms/FireBaseHeader";
+
+import { pathData } from "../assets/data/pathData";
 
 export const ComponentRouter: VFC = () => {
     return (
@@ -19,6 +20,7 @@ export const ComponentRouter: VFC = () => {
                     <Top />
                 </Route>
                 <Route path={pathData.fireBasePage1}>
+                    <FireBaseHeader />
                     <FireBasePage1 />
                 </Route>
                 <Route path={pathData.reduxPage1}>

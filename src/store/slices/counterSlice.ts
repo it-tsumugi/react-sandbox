@@ -1,7 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { counterType, RootState } from "../../reduxType";
-import { useAppSelector } from "../../hooks";
+import { RootState } from "../reduxType";
+import { useAppSelector } from "../hooks";
+
+type counterType = {
+    value: number;
+    status: "idle" | "loading" | "failed";
+};
 
 const initialState: counterType = {
     value: 0,
@@ -28,7 +33,6 @@ export const counterSlice = createSlice({
 export const { increment, decrement, incrementByAmount } = counterSlice.actions;
 
 //selector
-//インテリセンスを利用したい、インポートを少なくしたいという理由からhooksを作成
 export const useCountSelector = () => {
     const count = useAppSelector((state: RootState) => state.counter.value);
     return { count };

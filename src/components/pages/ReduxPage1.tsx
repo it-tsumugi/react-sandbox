@@ -6,7 +6,7 @@ import {
     increment,
     incrementByAmount,
     useCountSelector,
-} from "../../store/slices/counter/counterSlice";
+} from "../../store/slices/counterSlice";
 
 export const ReduxPage1: VFC = () => {
     const dispatch = useAppDispatch();
