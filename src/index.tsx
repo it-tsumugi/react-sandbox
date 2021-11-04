@@ -1,14 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { DatabaseReference } from "firebase/database";
+
 import { App } from "./App";
 
-import { getDatabase } from "firebase/database";
-import { initializeApp } from "firebase/app";
-import { firebaseConfig } from "./config";
+import { InitFirebase } from "./function/InitFirebase";
 
-// Initialize Firebase
-initializeApp(firebaseConfig);
-export const db = getDatabase();
+export const chatRef: DatabaseReference = InitFirebase();
 
 ReactDOM.render(
     <React.StrictMode>

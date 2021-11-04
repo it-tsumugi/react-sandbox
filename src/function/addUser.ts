@@ -1,7 +1,7 @@
 import moment from "moment";
-import { push, ref } from "firebase/database";
+import { push } from "firebase/database";
 
-import { db } from "../index";
+import { chatRef } from "../index";
 
 type addUserType = {
     userName: string;
@@ -23,8 +23,7 @@ export const addUser = (props: addUserType) => {
             text: text,
             createAt: timestamp.format("YYYY-MM-DD HH:mm:ss"),
         };
-        const dbRef = ref(db, "users/");
-        push(dbRef, postData);
+        push(chatRef, postData);
         setText("");
     }
 };
