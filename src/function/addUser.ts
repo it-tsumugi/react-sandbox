@@ -1,7 +1,8 @@
 import moment from "moment";
 import { push } from "firebase/database";
 
-import { chatRef } from "../index";
+import { chatRef } from "../assets/data/referenceData";
+import { dbDataType } from "../assets/type/dataType";
 
 type addUserType = {
     userName: string;
@@ -18,10 +19,10 @@ export const addUser = (props: addUserType) => {
         window.alert("テキストを入力してください");
     } else {
         let timestamp = moment();
-        const postData = {
+        const postData: dbDataType = {
             user_name: userName,
             text: text,
-            createAt: timestamp.format("YYYY-MM-DD HH:mm:ss"),
+            createdAt: timestamp.format("YYYY-MM-DD HH:mm:ss"),
         };
         push(chatRef, postData);
         setText("");

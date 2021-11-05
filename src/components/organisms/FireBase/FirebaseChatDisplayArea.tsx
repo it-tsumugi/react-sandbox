@@ -11,22 +11,20 @@ export const FirebaseChatDisplayArea: VFC = () => {
     const { chatData } = useChatDataSelector();
     useFetchData();
     console.log("チャット表示領域のレンダリング");
-
     return (
         <SChatListContainer>
             {chatData.status === "loading" ? (
                 <CircularProgress />
+            ) : chatData.value.length === 0 ? (
+                <div>チャットはありません</div>
             ) : (
-                chatData.value.map((item, index) => {
+                chatData.value.map((item) => {
                     return (
-                        <SChatContainer
-                            key={item.key}
-                            style={{ order: -index }}
-                        >
+                        <SChatContainer key={item.key}>
                             <SContent>{item.value.user_name}</SContent>
                             <SContent>{item.value.text}</SContent>
                             <SContent>
-                                {moment(item.value.createAt).fromNow()}
+                                {moment(item.value.createdAt).fromNow()}
                             </SContent>
                         </SChatContainer>
                     );

@@ -14,6 +14,6 @@ export const InitFirebase = () => {
     //データベースの取得
     const db: Database = getDatabase();
     //データベース上のチャットへの参照を取得
-    const chatRef: DatabaseReference = ref(db, "users");
+    const chatRef: DatabaseReference = ref(db, "chats");
     return chatRef;
 };

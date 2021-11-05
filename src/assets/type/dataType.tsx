@@ -1,7 +1,7 @@
 export type dbDataType = {
     user_name: string;
     text: string;
-    createAt: string;
+    createdAt: string;
 };
 
 export type chatDataType = {

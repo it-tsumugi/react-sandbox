@@ -1,7 +1,9 @@
 import { useState, VFC } from "react";
 import styled from "styled-components";
+
 import { addUser } from "../../../function/addUser";
 import { login } from "../../../function/login";
+import { deleteAllChats } from "../../../function/deleteAllChats";
 
 export const FirebaseActionArea: VFC = () => {
     const [userName, setUserName] = useState("");
@@ -34,11 +36,14 @@ export const FirebaseActionArea: VFC = () => {
                 placeholder="テキストを入力してください"
             />
             <></>
-            <SButton
+            <SAddButton
                 onClick={() => addUser({ userName, text, setText, isLogin })}
             >
                 データ追加
-            </SButton>
+            </SAddButton>
+            <SDeleteAllButton onClick={() => deleteAllChats()}>
+                データ全削除
+            </SDeleteAllButton>
             <SDbUserName>ユーザー名</SDbUserName>
             <SDbText>テキスト</SDbText>
             <SDbTimestamp>作成日時</SDbTimestamp>
@@ -86,7 +91,14 @@ const STextInput = styled.input`
     grid-row-end: 3;
 `;
 
-const SButton = styled.button`
+const SAddButton = styled.button`
+    grid-row-start: 3;
+    grid-row-end: 4;
+`;
+
+const SDeleteAllButton = styled.button`
+    grid-column-start: 3;
+    grid-column-end: 4;
     grid-row-start: 3;
     grid-row-end: 4;
 `;
