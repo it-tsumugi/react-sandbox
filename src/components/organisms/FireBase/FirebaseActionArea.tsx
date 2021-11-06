@@ -1,9 +1,10 @@
 import { useState, VFC } from "react";
 import styled from "styled-components";
 
-import { addUser } from "../../../function/addUser";
+import { addChat } from "../../../function/addChat";
 import { login } from "../../../function/login";
 import { deleteAllChats } from "../../../function/deleteAllChats";
+import { addSeedData } from "../../../function/addSeedData";
 
 export const FirebaseActionArea: VFC = () => {
     const [userName, setUserName] = useState("");
@@ -37,10 +38,13 @@ export const FirebaseActionArea: VFC = () => {
             />
             <></>
             <SAddButton
-                onClick={() => addUser({ userName, text, setText, isLogin })}
+                onClick={() => addChat({ userName, text, setText, isLogin })}
             >
                 データ追加
             </SAddButton>
+            <SAddSeedDataButton onClick={addSeedData}>
+                シードデータでリセット
+            </SAddSeedDataButton>
             <SDeleteAllButton onClick={() => deleteAllChats()}>
                 データ全削除
             </SDeleteAllButton>
@@ -92,6 +96,13 @@ const STextInput = styled.input`
 `;
 
 const SAddButton = styled.button`
+    grid-row-start: 3;
+    grid-row-end: 4;
+`;
+
+const SAddSeedDataButton = styled.button`
+    grid-column-start: 2;
+    grid-column-end: 3;
     grid-row-start: 3;
     grid-row-end: 4;
 `;

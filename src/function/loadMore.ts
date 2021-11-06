@@ -5,11 +5,13 @@ import {
     onValue,
     endBefore,
     orderByChild,
+    onChildAdded,
 } from "firebase/database";
 import { chatRef } from "../assets/data/referenceData";
 import { chatDataType, dbDataType } from "../assets/type/dataType";
 import { chatDataStateType, stringStateType } from "../store/reduxType";
 import { setChatData } from "../store/slices/chatDataSlice";
+import { setlastKey } from "../store/slices/lastKeySlice";
 
 type propsType = {
     dispatch: any;
@@ -40,12 +42,18 @@ export const loadMore = (props: propsType) => {
             //非破壊的に逆順に変更
             const newBufChatData = [...bufChatData].reverse();
             dispatch(setChatData([...chatData.value, ...newBufChatData]));
-            if (
-                lastKey.value ===
-                chatData.value[chatData.value.length - 1].value.createdAt
-            ) {
-                setHasMore(false);
-            }
+            dispatch(
+                setlastKey(
+                    chatData.value[chatData.value.length - 1].value.createdAt
+                )
+            );
+            if (lastKey.status === "idle" && chatData.status === "idle")
+                if (
+                    lastKey.value ===
+                    chatData.value[chatData.value.length - 1].value.createdAt
+                ) {
+                    setHasMore(false);
+                }
         },
         {
             onlyOnce: true,

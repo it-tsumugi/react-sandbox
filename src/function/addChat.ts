@@ -11,7 +11,7 @@ type addUserType = {
     isLogin: boolean;
 };
 
-export const addUser = (props: addUserType) => {
+export const addChat = (props: addUserType) => {
     const { userName, text, setText, isLogin } = props;
     if (isLogin === false) {
         window.alert("ログインしてください");

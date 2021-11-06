@@ -19,37 +19,40 @@ export const FirebaseInfinite = () => {
     useFetchData();
     useGetLastCreatedAt();
     console.log("チャット表示領域のレンダリング");
-
+    if (chatData.status === "idle") console.log(chatData);
+    if (lastKey.status === "idle") console.log(lastKey);
     return (
         <SChatListContainer>
             {/* <button onClick={() => loadMore(dispatch)}>走らせる</button> */}
-            <InfiniteScroll
-                pageStart={0}
-                loadMore={() =>
-                    loadMore({ dispatch, chatData, setHasMore, lastKey })
-                }
-                hasMore={hasMore}
-                loader={<CircularProgress />}
-                initialLoad={false}
-            >
-                {chatData.status === "loading" ? (
-                    <CircularProgress />
-                ) : chatData.value.length === 0 ? (
-                    <div>チャットはありません</div>
-                ) : (
-                    chatData.value.map((item) => {
-                        return (
-                            <SChatContainer key={item.key}>
-                                <SContent>{item.value.user_name}</SContent>
-                                <SContent>{item.value.text}</SContent>
-                                <SContent>
-                                    {moment(item.value.createdAt).fromNow()}
-                                </SContent>
-                            </SChatContainer>
-                        );
-                    })
-                )}
-            </InfiniteScroll>
+            {chatData.status === "loading" ? (
+                <CircularProgress />
+            ) : (
+                <InfiniteScroll
+                    pageStart={0}
+                    loadMore={() =>
+                        loadMore({ dispatch, chatData, setHasMore, lastKey })
+                    }
+                    hasMore={hasMore}
+                    loader={<CircularProgress />}
+                    initialLoad={false}
+                >
+                    {chatData.value.length === 0 ? (
+                        <div>チャットはありません</div>
+                    ) : (
+                        chatData.value.map((item) => {
+                            return (
+                                <SChatContainer key={item.key}>
+                                    <SContent>{item.value.user_name}</SContent>
+                                    <SContent>{item.value.text}</SContent>
+                                    <SContent>
+                                        {moment(item.value.createdAt).fromNow()}
+                                    </SContent>
+                                </SChatContainer>
+                            );
+                        })
+                    )}
+                </InfiniteScroll>
+            )}
         </SChatListContainer>
     );
 };

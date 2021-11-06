@@ -16,5 +16,5 @@ export const useGetLastCreatedAt = () => {
             );
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [chatData]);
+    }, []);
 };
