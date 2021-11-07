@@ -6,7 +6,7 @@ import {
     DatabaseReference,
 } from "firebase/database";
 
-import { firebaseConfig } from "../config";
+import { firebaseConfig } from "../../config";
 
 export const InitFirebase = () => {
     // Initialize Firebase

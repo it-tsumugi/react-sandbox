@@ -1,21 +1,22 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { RootState, stringStateType } from "../reduxType";
+import { RootState, stateStatusType, stringStateType } from "../reduxType";
 import { useAppSelector } from "../hooks";
 
 const initialState: stringStateType = {
     value: "",
-    status: "loading",
+    status: "idle",
 };
 
 export const lastKeySlice = createSlice({
     name: "lastKey",
     initialState: initialState,
     reducers: {
-        setlastKey: (state, action: PayloadAction<string>) => {
-            state.status = "loading";
+        setlastKeyStatus: (state, action: PayloadAction<stateStatusType>) => {
+            state.status = action.payload;
+        },
+        setlastKeyValue: (state, action: PayloadAction<string>) => {
             state.value = action.payload;
-            state.status = "idle";
         },
     },
 });
@@ -24,7 +25,7 @@ export const lastKeySlice = createSlice({
 export const lastKeyReducer = lastKeySlice.reducer;
 
 //action
-export const { setlastKey } = lastKeySlice.actions;
+export const { setlastKeyStatus, setlastKeyValue } = lastKeySlice.actions;
 
 //selector
 export const useLastKeySelector = () => {

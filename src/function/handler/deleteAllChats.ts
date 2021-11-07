@@ -1,6 +1,6 @@
 import { set } from "firebase/database";
 
-import { chatRef } from "../assets/data/referenceData";
+import { chatRef } from "../../assets/data/referenceData";
 
 export const deleteAllChats = () => {
     set(chatRef, {}).catch((error) => {

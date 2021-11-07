@@ -1,10 +1,10 @@
 import { useState, VFC } from "react";
 import styled from "styled-components";
 
-import { addChat } from "../../../function/addChat";
-import { login } from "../../../function/login";
-import { deleteAllChats } from "../../../function/deleteAllChats";
-import { addSeedData } from "../../../function/addSeedData";
+import { addChat } from "../../../function/handler/addChat";
+import { login } from "../../../function/handler/login";
+import { deleteAllChats } from "../../../function/handler/deleteAllChats";
+import { addSeedData } from "../../../function/handler/addSeedData";
 
 export const FirebaseActionArea: VFC = () => {
     const [userName, setUserName] = useState("");

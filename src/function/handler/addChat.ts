@@ -1,8 +1,8 @@
 import moment from "moment";
 import { push } from "firebase/database";
 
-import { chatRef } from "../assets/data/referenceData";
-import { dbDataType } from "../assets/type/dataType";
+import { chatRef } from "../../assets/data/referenceData";
+import { dbDataType } from "../../assets/type/dataType";
 
 type addUserType = {
     userName: string;
@@ -18,7 +18,7 @@ export const addChat = (props: addUserType) => {
     } else if (text.length === 0) {
         window.alert("テキストを入力してください");
     } else {
-        let timestamp = moment();
+        const timestamp = moment();
         const postData: dbDataType = {
             user_name: userName,
             text: text,

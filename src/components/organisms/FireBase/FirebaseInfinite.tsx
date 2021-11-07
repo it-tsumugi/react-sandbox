@@ -8,7 +8,7 @@ import { useAppDispatch } from "../../../store/hooks";
 import { useChatDataSelector } from "../../../store/slices/chatDataSlice";
 import { useLastKeySelector } from "../../../store/slices/lastKeySlice";
 import { useGetLastCreatedAt } from "../../../hooks/useGetLastCreatedAt";
-import { loadMore } from "../../../function/loadMore";
+import { loadMore } from "../../../function/handler/loadMore";
 
 export const FirebaseInfinite = () => {
     const { chatData } = useChatDataSelector();
@@ -16,25 +16,28 @@ export const FirebaseInfinite = () => {
     const dispatch = useAppDispatch();
     const [hasMore, setHasMore] = useState(true);
 
+    //初回時のみ実行、それ以降はDBに変更があった時のみ動作
     useFetchData();
-    useGetLastCreatedAt();
+    //chatData変更時のみ実行、
+    useGetLastCreatedAt(setHasMore);
+
     console.log("チャット表示領域のレンダリング");
-    if (chatData.status === "idle") console.log(chatData);
-    if (lastKey.status === "idle") console.log(lastKey);
+
     return (
         <SChatListContainer>
-            {/* <button onClick={() => loadMore(dispatch)}>走らせる</button> */}
+            <button onClick={() => loadMore({ dispatch, chatData, lastKey })}>
+                走らせる
+            </button>
             {chatData.status === "loading" ? (
                 <CircularProgress />
             ) : (
                 <InfiniteScroll
                     pageStart={0}
-                    loadMore={() =>
-                        loadMore({ dispatch, chatData, setHasMore, lastKey })
-                    }
+                    loadMore={() => loadMore({ dispatch, chatData, lastKey })}
                     hasMore={hasMore}
-                    loader={<CircularProgress />}
+                    loader={<CircularProgress key={"0"} />}
                     initialLoad={false}
+                    threshold={50}
                 >
                     {chatData.value.length === 0 ? (
                         <div>チャットはありません</div>

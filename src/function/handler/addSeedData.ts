@@ -1,7 +1,7 @@
 import { set } from "firebase/database";
 import moment from "moment";
-import { chatRef } from "../assets/data/referenceData";
-import { dbDataType } from "../assets/type/dataType";
+import { chatRef } from "../../assets/data/referenceData";
+import { dbDataType } from "../../assets/type/dataType";
 
 export const addSeedData = () => {
     let timestamp = moment();
@@ -14,7 +14,7 @@ export const addSeedData = () => {
 
         seedData[i] = {
             user_name: "つむぎ",
-            text: `${i}`,
+            text: `${i + 1}`,
             createdAt: timestamp.format(`YYYY-MM-DD HH:mm:${strNum}`),
         };
     }
