@@ -5,14 +5,14 @@ import { initializeApp } from "firebase/app";
 import { App } from "./App";
 
 import { firebaseConfig } from "./config";
-import { getChatRef } from "./functions/atoms/getChatRef";
+import { getChatRef } from "./functions/getChatRef";
 
 export const app = initializeApp(firebaseConfig);
 export const chatRef = getChatRef(app);
 
 ReactDOM.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>,
-    document.getElementById("root")
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById("root")
 );

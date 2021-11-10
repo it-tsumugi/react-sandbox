@@ -2,6 +2,7 @@ export type dbChatDataType = {
     user_name: string;
     text: string;
     createdAt: string;
+    order: number;
 };
 
 export type bufChatDataType = {
@@ -14,4 +15,5 @@ export type chatDataType = {
     user_name: string;
     text: string;
     createdAt: string;
+    order: number;
 };
