@@ -1,11 +1,10 @@
-import moment from "moment";
 import { VFC } from "react";
 import styled from "styled-components";
+import moment from "moment";
 import "moment/locale/ja";
 
 import { FirebaseActionArea } from "../organisms/FireBase/FirebaseActionArea";
 import { FirebaseChatDisplayArea } from "../organisms/FireBase/FirebaseChatDisplayArea";
-import { FirebaseInfinite } from "../organisms/FireBase/FirebaseInfinite";
 
 export const FireBasePage1: VFC = () => {
     moment.locale("ja");
@@ -13,8 +12,7 @@ export const FireBasePage1: VFC = () => {
     return (
         <SComponentContainer>
             <FirebaseActionArea />
-            {/* <FirebaseChatDisplayArea /> */}
-            <FirebaseInfinite />
+            <FirebaseChatDisplayArea />
         </SComponentContainer>
     );
 };

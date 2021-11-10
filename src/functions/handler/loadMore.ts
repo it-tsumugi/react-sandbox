@@ -6,37 +6,43 @@ import {
     endBefore,
     orderByChild,
 } from "firebase/database";
-import { chatRef } from "../../assets/data/referenceData";
-import { chatDataStateType, stringStateType } from "../../store/reduxType";
+import { chatRef } from "../..";
+import { chatDataType } from "../../assets/type/dataType";
+import { AppDispatch } from "../../assets/type/reduxType";
+import { chatDataStateType } from "../../assets/type/stateType";
 import {
     setChatDataStatus,
     setChatDataValue,
 } from "../../store/slices/chatDataSlice";
 import { convertChatData } from "../atoms/convertChatData";
+import { READ_CHAT_NUM } from "../../assets/data/constNum";
 
 type propsType = {
-    dispatch: any;
-    lastKey: stringStateType;
+    dispatch: AppDispatch;
+    lastCreatedAt: string;
     chatData: chatDataStateType;
 };
 
 export const loadMore = (props: propsType) => {
-    const { dispatch, lastKey, chatData } = props;
+    const { dispatch, lastCreatedAt, chatData } = props;
     const chatQuery: Query = query(
         chatRef,
         orderByChild("createdAt"),
-        endBefore(lastKey.value),
+        endBefore(lastCreatedAt),
         //なんで＋１？
-        limitToLast(5 + 1)
+        limitToLast(READ_CHAT_NUM + 1)
     );
+
     onValue(
         chatQuery,
         (snapshot) => {
             console.log("チャットデータの取得");
-            const newBufChatData = convertChatData(snapshot.val());
-            dispatch(setChatDataStatus("loading"));
+            const newBufChatData: chatDataType[] = convertChatData(
+                snapshot.val()
+            );
+            // dispatch(setChatDataStatus("loading"));
             dispatch(setChatDataValue([...chatData.value, ...newBufChatData]));
-            dispatch(setChatDataStatus("idle"));
+            // dispatch(setChatDataStatus("idle"));
         },
         {
             onlyOnce: true,

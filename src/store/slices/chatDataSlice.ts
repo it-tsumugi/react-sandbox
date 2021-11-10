@@ -1,8 +1,12 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { chatDataStateType, RootState, stateStatusType } from "../reduxType";
-import { useAppSelector } from "../hooks";
+import { RootState } from "../../assets/type/reduxType";
 import { chatDataType } from "../../assets/type/dataType";
+import { useAppSelector } from "../../hooks/useAppSelector";
+import {
+    chatDataStateType,
+    stateStatusType,
+} from "../../assets/type/stateType";
 
 const initialState: chatDataStateType = {
     value: [],

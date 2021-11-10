@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { RootState } from "../reduxType";
-import { useAppSelector } from "../hooks";
+import { RootState } from "../../assets/type/reduxType";
+import { useAppSelector } from "../../hooks/useAppSelector";
 
 type counterType = {
     value: number;

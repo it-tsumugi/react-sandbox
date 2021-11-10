@@ -1,11 +1,11 @@
 import { set } from "firebase/database";
 import moment from "moment";
-import { chatRef } from "../../assets/data/referenceData";
-import { dbDataType } from "../../assets/type/dataType";
+import { chatRef } from "../..";
+import { dbChatDataType } from "../../assets/type/dataType";
 
 export const addSeedData = () => {
     let timestamp = moment();
-    let seedData: dbDataType[] = [];
+    let seedData: dbChatDataType[] = [];
 
     for (let i = 0; i < 60; i++) {
         let strNum: string = "";

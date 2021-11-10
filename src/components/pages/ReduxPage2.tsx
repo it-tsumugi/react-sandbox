@@ -1,6 +1,6 @@
 import { useState, VFC } from "react";
-import { useAppDispatch } from "../../store/hooks";
 
+import { useAppDispatch } from "../../hooks/useAppDispatch";
 import {
     decrement,
     increment,

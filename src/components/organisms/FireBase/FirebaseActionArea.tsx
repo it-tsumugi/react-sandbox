@@ -1,10 +1,10 @@
 import { useState, VFC } from "react";
 import styled from "styled-components";
 
-import { addChat } from "../../../function/handler/addChat";
-import { login } from "../../../function/handler/login";
-import { deleteAllChats } from "../../../function/handler/deleteAllChats";
-import { addSeedData } from "../../../function/handler/addSeedData";
+import { addChat } from "../../../functions/handler/addChat";
+import { login } from "../../../functions/handler/login";
+import { deleteAllChats } from "../../../functions/handler/deleteAllChats";
+import { addSeedData } from "../../../functions/handler/addSeedData";
 
 export const FirebaseActionArea: VFC = () => {
     const [userName, setUserName] = useState("");
@@ -36,7 +36,6 @@ export const FirebaseActionArea: VFC = () => {
                 onChange={(e) => setText(e.target.value)}
                 placeholder="テキストを入力してください"
             />
-            <></>
             <SAddButton
                 onClick={() => addChat({ userName, text, setText, isLogin })}
             >

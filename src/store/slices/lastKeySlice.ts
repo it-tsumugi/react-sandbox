@@ -1,34 +1,30 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { RootState, stateStatusType, stringStateType } from "../reduxType";
-import { useAppSelector } from "../hooks";
+import { RootState } from "../../assets/type/reduxType";
+import { useAppSelector } from "../../hooks/useAppSelector";
 
-const initialState: stringStateType = {
-    value: "",
-    status: "idle",
-};
+const initialState: string = "";
 
-export const lastKeySlice = createSlice({
-    name: "lastKey",
+export const lastCreatedAtSlice = createSlice({
+    name: "lastCreatedAt",
     initialState: initialState,
     reducers: {
-        setlastKeyStatus: (state, action: PayloadAction<stateStatusType>) => {
-            state.status = action.payload;
-        },
-        setlastKeyValue: (state, action: PayloadAction<string>) => {
-            state.value = action.payload;
+        setLastCreatedAt: (state, action: PayloadAction<string>) => {
+            return (state = action.payload);
         },
     },
 });
 
 //reducer
-export const lastKeyReducer = lastKeySlice.reducer;
+export const lastCreatedAtReducer = lastCreatedAtSlice.reducer;
 
 //action
-export const { setlastKeyStatus, setlastKeyValue } = lastKeySlice.actions;
+export const { setLastCreatedAt } = lastCreatedAtSlice.actions;
 
 //selector
-export const useLastKeySelector = () => {
-    const lastKey = useAppSelector((state: RootState) => state.lastKey);
-    return { lastKey };
+export const useLastCreatedAtSelector = () => {
+    const lastCreatedAt = useAppSelector(
+        (state: RootState) => state.lastCreatedAt
+    );
+    return { lastCreatedAt };
 };
