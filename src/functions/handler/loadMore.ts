@@ -9,7 +9,7 @@ import {
 
 import { chatRef } from "../..";
 import { chatDataType } from "../../assets/type/dataType";
-import { AppDispatch } from "../../assets/type/reduxType";
+import { AppThunkDispatch } from "../../assets/type/reduxType";
 import { setChatData } from "../../store/slices/chatDataSlice";
 import { convertChatData } from "../features/chatData/convertChatData";
 import { setHasMore } from "../../store/slices/hasMoreSlice";
@@ -18,7 +18,7 @@ import { LOAD_CHAT_NUM, START_CHAT_ORDER } from "../../assets/data/constNum";
 
 type propsType = {
   hasMore: boolean;
-  dispatch: AppDispatch;
+  dispatch: AppThunkDispatch;
   chatData: chatDataType[];
   lastChatOrder: number;
 };

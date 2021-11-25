@@ -1,9 +1,9 @@
 export const pathData = {
-    top: "/top",
+  top: "/top",
 
-    redux: "redux",
-    reduxPage1: "/redux-page1",
-    reduxPage2: "/redux-page2",
-
-    fireBasePage1: "/fire-base-page1",
+  redux: "redux",
+  reduxPage1: "/redux-page1",
+  reduxPage2: "/redux-page2",
+  reduxThunkPage1: "/redux-thunk-page1",
+  fireBasePage1: "/fire-base-page1",
 };

@@ -1,7 +1,7 @@
-import { AppDispatch } from "../assets/type/reduxType";
+import { AppThunkDispatch } from "../assets/type/reduxType";
 import { useDispatch } from "react-redux";
 
 export const useAppDispatch = () => {
-  const dispatch = useDispatch<AppDispatch>();
+  const dispatch = useDispatch<AppThunkDispatch>();
   return { dispatch };
 };
