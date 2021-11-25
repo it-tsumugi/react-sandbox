@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/react-sandbox/static/js/main.ef83ac75.chunk.js",
-    "main.js.map": "/react-sandbox/static/js/main.ef83ac75.chunk.js.map",
+    "main.js": "/react-sandbox/static/js/main.0a2deab4.chunk.js",
+    "main.js.map": "/react-sandbox/static/js/main.0a2deab4.chunk.js.map",
     "runtime-main.js": "/react-sandbox/static/js/runtime-main.5fd6592f.js",
     "runtime-main.js.map": "/react-sandbox/static/js/runtime-main.5fd6592f.js.map",
     "static/js/2.618e3b1e.chunk.js": "/react-sandbox/static/js/2.618e3b1e.chunk.js",
@@ -12,6 +12,6 @@
   "entrypoints": [
     "static/js/runtime-main.5fd6592f.js",
     "static/js/2.618e3b1e.chunk.js",
-    "static/js/main.ef83ac75.chunk.js"
+    "static/js/main.0a2deab4.chunk.js"
   ]
 }
