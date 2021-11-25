@@ -1,5 +1,5 @@
 export const pathData = {
-  top: "/top",
+  top: "/",
 
   redux: "redux",
   reduxPage1: "/redux-page1",
